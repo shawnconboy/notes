@@ -8,6 +8,18 @@ body {
     padding: 0% 10%;
 }
 
+header {
+    display: flex;
+    justify-content: end;
+}
+
+header>a {
+    padding: 0px 10px;
+    text-decoration: none;
+    color: #e76f51;
+    cursor: pointer;
+}
+
 .container {
     /* padding: 0% 10%; */
 }
