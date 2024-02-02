@@ -1,1 +1,3 @@
+https://shawnconboy.github.io/notes/
+
 This is a project to gather and simplify all there is to know when it comes to web development.
