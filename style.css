@@ -8,77 +8,10 @@ body {
     padding: 0% 10%;
 }
 
-header {
-    display: flex;
-    justify-content: end;
-}
-
-a {
-    padding: 0px 10px;
-    text-decoration: none;
+colors {
+    color: #2a9d8f;
     color: #e76f51;
-    cursor: pointer;
-}
-
-.container {
-    /* padding: 0% 10%; */
-}
-
-.header {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-.section {
-    padding: 0px 10px;
-}
-
-.sectionInfo {
-    padding: 0px 10px;
-    margin-left: 30px;
-}
-
-li {
-    padding: 2px 0px;
-}
-
-h1 {
-    color: #f4a261;
-}
-
-h2 {
     color: #e9c46a;
-    background-color: #e76f51;
-    border-radius: 20px;
-    padding: 10px;
-    width: 40%;
-    font-size: 1.7rem;
-}
-
-h3 {
     color: #c781f6;
-    padding: 0px 10px;
-    font-size: 1.4rem;
-}
-
-.keyWord {
-    font-size: 1.2rem;
-    color: #e9c46a;
-}
-
-pre {
-    background-color: rgb(45, 43, 52);
-    border-radius: 20px;
-    border: 2px solid green;
-    /* width: 80%; */
-    padding-top: 10px;
-    font-family: 'Roboto', sans-serif;
-    font-size: 0.95rem;
-    white-space: pre-wrap;
-}
-
-code {
     color: #c84c65;
 }
