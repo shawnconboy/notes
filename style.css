@@ -1,11 +1,12 @@
 body {
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    padding: 0% 10%;
     font-family: 'Roboto', sans-serif;
     background-color: #0a0b15;
     color: #2a9d8f;
-    justify-content: center;
-    padding: 0% 10%;
+    align-items: center;
 }
 
 colors {
