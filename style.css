@@ -40,9 +40,33 @@ colors {
     padding: 10px 0px;
 }
 
+.containerElementsMain {
+    height: 80%;
+}
+
+.containerElementsMainContent {
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.categoryList {
+    /* background-color: #2a9d8f; */
+    padding: 10px;
+}
+
+.categoryList>a {
+    /* background-color: blue; */
+    padding: 5px;
+}
+
+
 a {
     text-decoration: none;
     color: #e76f51;
+    /* padding: 10px 0px; */
+    transition: color 0.3s ease;
 }
 
 a:hover {
