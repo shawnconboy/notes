@@ -36,6 +36,10 @@ colors {
     flex-direction: column;
 }
 
+.containerElements {
+    padding: 10px 0px;
+}
+
 a {
     text-decoration: none;
     color: #e76f51;
