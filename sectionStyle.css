@@ -39,6 +39,11 @@ body {
     justify-content: space-between;
 }
 
+header {
+    display: flex;
+    justify-content: end;
+}
+
 header>a {
     text-decoration: none;
     color: #e76f51;
@@ -94,7 +99,7 @@ h4 {
 }
 
 .section {
-    border: solid;
+    /* border: solid; */
     height: 95%;
 }
 
@@ -117,10 +122,11 @@ h4 {
 }
 
 .sectionContentIndex {
-    border: solid;
+    /* border: solid; */
     height: 40%;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    text-align: center;
 }
