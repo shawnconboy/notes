@@ -34,6 +34,16 @@ body {
     justify-content: space-between;
 }
 
+header>a {
+    text-decoration: none;
+    color: #e76f51;
+    padding: 5px 10px;
+}
+
+header>a:hover {
+    color: #2a9d8f;
+}
+
 .section {
     border: solid;
     height: 95%;
