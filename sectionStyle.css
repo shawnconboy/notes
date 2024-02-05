@@ -23,12 +23,36 @@ body {
 }
 
 .container {
-    border: solid;
+    /* border: solid; */
     /* width: 100vh; */
     height: 96vh;
 
-    padding: 10px 2.5%;
+    padding: 10px 15%;
 
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
+}
+
+.section {
+    border: solid;
+    height: 95%;
+}
+
+.sectionHeading {
+    background-color: #e76f51;
+    color: #e9c46a;
+
+    border-radius: 20px;
+    padding: 10px 20px;
+    width: fit-content;
+}
+
+.sectionSubHeading {
+    color: #e9c46a;
+    padding: 0px 20px;
+}
+
+.sectionContent {
+    padding: 0px 30px;
 }
