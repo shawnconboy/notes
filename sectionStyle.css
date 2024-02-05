@@ -147,7 +147,7 @@ pre {
 
 footer {
     text-align: center;
-    position: fixed;
+    position: static;
     bottom: 1%;
     right: 41%;
 }
