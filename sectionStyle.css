@@ -22,6 +22,7 @@ body {
     background-color: #0a0b15;
     color: #2a9d8f;
     font-family: 'Roboto', sans-serif;
+    letter-spacing: 0.8px;
 
     /* display: flex; */
     /* justify-content: center; */
@@ -30,7 +31,7 @@ body {
 .container {
     /* border: solid; */
     /* width: 100vh; */
-    /* height: 96vh; */
+    height: 96vh;
 
     padding: 10px 15%;
 
@@ -117,11 +118,18 @@ h4 {
     border-radius: 20px;
     padding: 10px 20px;
     width: fit-content;
+    font-size: 2rem;
 }
 
 .sectionSubHeading {
     color: #e9c46a;
     padding: 0px 20px;
+    font-size: 1.5rem;
+}
+
+.contentHeading {
+    font-size: 1.2rem;
+    color: #c781f6;
 }
 
 .sectionContent {
@@ -147,7 +155,4 @@ pre {
 
 footer {
     text-align: center;
-    position: static;
-    bottom: 1%;
-    right: 41%;
 }
