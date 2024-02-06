@@ -51,6 +51,13 @@ header {
     font-weight: 500;
 }
 
+.headerLogo>a {
+    color: #2a9d8f;
+    text-decoration: none;
+}
+
+
+
 .headerLinks>a {
     text-decoration: none;
     color: #e76f51;
