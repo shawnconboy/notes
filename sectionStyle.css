@@ -23,7 +23,7 @@ body {
     color: #2a9d8f;
     font-family: 'Roboto', sans-serif;
     letter-spacing: 0.8px;
-
+    line-height: 25px;
     /* display: flex; */
     /* justify-content: center; */
 }
@@ -83,6 +83,10 @@ button:hover {
 
 h4 {
     font-size: 1.8rem;
+}
+
+ul {
+    list-style: none;
 }
 
 .categorySection {
