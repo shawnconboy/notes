@@ -31,7 +31,9 @@ body {
 .container {
     /* border: solid; */
     /* width: 100vh; */
-    height: 96vh;
+    /* height: 96vh; */
+    height: 100%;
+    min-height: 640px;
 
     padding: 10px 15%;
 
