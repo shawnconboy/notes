@@ -58,7 +58,15 @@ header {
     text-decoration: none;
 }
 
+a {
+    text-decoration: none;
+    color: #e76f51;
+    cursor: pointer;
+}
 
+a:hover {
+    color: #2a9d8f;
+}
 
 .headerLinks>a {
     text-decoration: none;
