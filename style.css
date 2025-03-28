@@ -131,6 +131,10 @@ a {
     color: white;
 }
 
+li {
+    list-style: none;
+}
+
 /* Responsive Adjustments */
 @media (max-width: 768px) {
     .sidebar {
