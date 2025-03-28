@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Functions - C++ Wiki</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="./index.html">
+            <h2>C++ Wiki</h2>
+        </a>
+        <ul>
+            <li><a href="../index.html">Introduction</a></li>
+            <li><a href="variables.html">Variables</a></li>
+            <li><a href="loops.html">Loops</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="intro">
+            <h1>Functions in C++</h1>
+            <p>Functions help break down your code into reusable blocks, making it more organized and readable.</p>
+
+            <h2>Why Use Functions?</h2>
+            <ul>
+                <li>🔹 Reduces repetition.</li>
+                <li>🔹 Makes debugging easier.</li>
+                <li>🔹 Improves readability.</li>
+            </ul>
+
+            <h2>Basic Function Example</h2>
+            <p>This function prints a message:</p>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+void sayHello() {
+    cout << "Hello, welcome to C++!" << endl;
+}
+
+int main() {
+    sayHello(); // Calling the function
+    return 0;
+}
+            </code></pre>
+
+            <h2>Function with Parameters</h2>
+            <p>Functions can take inputs (parameters) and use them:</p>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+void greet(string name) {
+    cout << "Hello, " << name << "!" << endl;
+}
+
+int main() {
+    greet("Alice"); // Output: Hello, Alice!
+    greet("Bob");   // Output: Hello, Bob!
+    return 0;
+}
+            </code></pre>
+
+            <h2>Function with Return Value</h2>
+            <p>Functions can also return values:</p>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int add(int a, int b) {
+    return a + b;
+}
+
+int main() {
+    int sum = add(5, 3);
+    cout << "Sum: " << sum << endl; // Output: Sum: 8
+    return 0;
+}
+            </code></pre>
+        </div>
+    </div>
+</body>
+
+</html>

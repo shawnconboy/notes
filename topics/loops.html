@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loops - C++ Wiki</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="../index.html">
+            <h2>C++ Wiki</h2>
+        </a>
+        <ul>
+            <li><a href="../index.html">Introduction</a></li>
+            <li><a href="variables.html">Variables</a></li>
+            <li><a href="loops.html">Loops</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="intro">
+            <h1>Loops in C++</h1>
+            <p>Loops allow you to repeat a block of code multiple times. They are useful when you need to run the same
+                instructions multiple times.</p>
+
+            <h2>Types of Loops:</h2>
+            <ul>
+                <li><strong>For Loop</strong> – Best for a known number of repetitions.</li>
+                <li><strong>While Loop</strong> – Runs while a condition is true.</li>
+                <li><strong>Do-While Loop</strong> – Runs at least once, then checks the condition.</li>
+            </ul>
+
+            <h2>Example: For Loop</h2>
+            <p>This prints numbers from 1 to 5:</p>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    for (int i = 1; i <= 5; i++) {
+        cout << "Number: " << i << endl;
+    }
+    return 0;
+}
+            </code></pre>
+
+            <h2>Example: While Loop</h2>
+            <p>This loop continues while the condition remains true:</p>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int count = 1;
+    while (count <= 5) {
+        cout << "Count: " << count << endl;
+        count++;
+    }
+    return 0;
+}
+            </code></pre>
+
+            <h2>Example: Do-While Loop</h2>
+            <p>This always runs at least once:</p>
+            <pre><code>
+#include &lt;iostream&gt;
+using namespace std;
+
+int main() {
+    int num = 1;
+    do {
+        cout << "Number: " << num << endl;
+        num++;
+    } while (num <= 5);
+    return 0;
+}
+            </code></pre>
+        </div>
+    </div>
+</body>
+
+</html>
