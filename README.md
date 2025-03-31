@@ -1,1 +1,1 @@
-https://shawnconboy.github.io/cppWiki/index.html
+https://shawnconboy.github.io/notes/
