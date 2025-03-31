@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Strings - C++ Wiki</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="../index.html">
+            <h2>C++ Wiki</h2>
+        </a>
+        <ul>
+            <li><a href="../index.html">Introduction</a></li>
+            <li><a href="variables.html">Variables</a></li>
+            <li><a href="loops.html">Loops</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="strings.html">Strings</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="intro">
+            <h1>Strings in C++</h1>
+
+            <h2>What are Strings?</h2>
+            <p>A string is a sequence of characters. In C++, you can use the <code>string</code> class from the
+                &lt;string&gt; library.</p>
+
+            <h2>Declaring a String</h2>
+            <p><strong>Syntax:</strong> <code>string variable_name = "value";</code></p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string message = "Hello, World!";
+    cout << message;
+    return 0;
+}
+            </code></pre>
+
+            <h2>Using getline()</h2>
+            <p><strong>Syntax:</strong> <code>getline(cin, variable_name);</code>
+                <br>Used to read an entire line, including spaces.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string fullName;
+    cout << "Enter your full name: ";
+    getline(cin, fullName);
+    cout << "Hello, " << fullName << "!";
+    return 0;
+}
+            </code></pre>
+
+            <h2>Using cin.ignore()</h2>
+            <p><strong>Syntax:</strong> <code>cin.ignore();</code>
+                <br>Clears the input buffer, useful after using <code>cin</code> before <code>getline()</code>.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    int age;
+    string name;
+
+    cout << "Enter your age: ";
+    cin >> age;
+    cin.ignore(); // Clears input buffer
+
+    cout << "Enter your name: ";
+    getline(cin, name);
+
+    cout << "Hello, " << name << "! You are " << age << " years old.";
+    return 0;
+}
+            </code></pre>
+
+            <h2>Finding String Length (length())</h2>
+            <p><strong>Syntax:</strong> <code>string_variable.length();</code>
+                <br>Returns the number of characters in a string.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string text = "C++ is awesome!";
+    cout << "Length: " << text.length(); // Output: 15
+    return 0;
+}
+            </code></pre>
+
+            <h2>Getting Substrings (substr())</h2>
+            <p><strong>Syntax:</strong> <code>string_variable.substr(start_index, length);</code>
+                <br>Extracts a portion of the string.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string text = "Programming";
+    cout << text.substr(0, 4); // Output: "Prog"
+    return 0;
+}
+            </code></pre>
+
+            <h2>Replacing Part of a String (replace())</h2>
+            <p><strong>Syntax:</strong> <code>string_variable.replace(start_index, length, "new_value");</code>
+                <br>Replaces a section of a string with a new value.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string sentence = "I love Java!";
+    sentence.replace(7, 4, "C++"); 
+    cout << sentence; // Output: "I love C++!"
+    return 0;
+}
+            </code></pre>
+
+            <h2>Inserting into a String (insert())</h2>
+            <p><strong>Syntax:</strong> <code>string_variable.insert(index, "text_to_insert");</code>
+                <br>Adds a substring at the specified index.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string word = "Hello!";
+    word.insert(5, " World");
+    cout << word; // Output: "Hello World!"
+    return 0;
+}
+            </code></pre>
+
+            <h2>Assigning a String (assign())</h2>
+            <p><strong>Syntax:</strong> <code>string_variable.assign("new_value");</code>
+                <br>Assigns a new value to an existing string.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string text;
+    text.assign("New text assigned!");
+    cout << text;
+    return 0;
+}
+            </code></pre>
+
+            <h2>Using String Arrays</h2>
+            <p><strong>Syntax:</strong> <code>string array_name[size] = {"value1", "value2", ...};</code>
+                <br>Creates an array of strings.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string fruits[3] = {"Apple", "Banana", "Cherry"};
+    cout << "Favorite fruit: " << fruits[1]; // Output: Banana
+    return 0;
+}
+            </code></pre>
+
+            <h2>Concatenating Strings (+ or append())</h2>
+            <p><strong>Syntax:</strong>
+                <br><code>string new_string = string1 + string2;</code>
+                <br><code>string1.append(string2);</code>
+                <br>Combines two strings together.
+            </p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    string firstName = "John";
+    string lastName = "Doe";
+
+    // Using +
+    string fullName = firstName + " " + lastName;
+    cout << fullName << endl;
+
+    // Using append()
+    string greeting = "Hello, ";
+    greeting.append(firstName);
+    cout << greeting;
+    
+    return 0;
+}
+            </code></pre>
+        </div>
+    </div>
+</body>
+
+</html>
