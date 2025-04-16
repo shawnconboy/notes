@@ -25,7 +25,7 @@
             <li><a href="functions.html">Functions</a></li>
             <li><a href="arrays.html">Arrays</a></li>
             <li><a href="strings.html">Strings</a></li>
-            <li><a href="fstream.html">File</a></li>
+            <li><a href="fstream.html">File I/O</a></li>
         </ul>
     </div>
 
@@ -33,48 +33,79 @@
         <div class="intro">
             <h1>File I/O in C++</h1>
 
-            <h2>What is <code>fstream</code>?</h2>
-            <p><code>fstream</code> is part of the C++ Standard Library and allows you to read from and write to files.
-                It's found in the &lt;fstream&gt; header and gives you control over file input/output (I/O).</p>
+            <h2>What is File I/O?</h2>
+            <p>File I/O (Input/Output) allows your C++ programs to read data from files and write data to files. This is
+                useful for saving data between program runs.</p>
 
-            <h2>Types of File Streams</h2>
+            <h2>Sequential Access Files</h2>
+            <p>Sequential access files (also called text files) store lines of text that your program can read in order,
+                from beginning to end. They can be either:</p>
             <ul>
-                <li>🔹 <code>ifstream</code> – Input file stream (for reading)</li>
-                <li>🔹 <code>ofstream</code> – Output file stream (for writing)</li>
-                <li>🔹 <code>fstream</code> – Can do both reading and writing</li>
+                <li><strong>Input files</strong> – files the program reads from</li>
+                <li><strong>Output files</strong> – files the program writes to</li>
             </ul>
 
-            <h2>Include the Header</h2>
+            <h2>Required Header</h2>
             <pre><code>
 #include &lt;fstream&gt;
+</code>
+</pre>
+            <p>This header gives access to:</p>
+            <ul>
+                <li><code>ifstream</code> – for input file objects</li>
+                <li><code>ofstream</code> – for output file objects</li>
+                <li><code>fstream</code> – for files that do both</li>
+            </ul>
 
-</code></pre>
-
-            <h2>Writing to a File</h2>
-            <p>This example writes favorite foods to a file called <code>foods.txt</code>:</p>
+            <h2>Opening Files</h2>
+            <p>Use the <code>open()</code> function to connect a file object to a file:</p>
             <pre><code>
-#include &lt;iostream&gt;
-#include &lt;fstream&gt;
-using namespace std;
-
-int main() {
-    ofstream outFile("foods.txt");
-
-    if (outFile.is_open()) {
-        outFile << "Pizza\n";
-        outFile << "Sushi\n";
-        outFile << "Ice Cream\n";
-        outFile.close();
-    } else {
-        cout << "Failed to open file." << endl;
-    }
-
-    return 0;
+ofstream outFile;
+outFile.open("foods.txt");
+            </code></pre>
+            <p>You can check if it worked using <code>is_open()</code>:</p>
+            <pre><code>
+if (outFile.is_open()) {
+    // success
 }
             </code></pre>
 
-            <h2>Reading from a File</h2>
-            <p>This reads and prints the contents of <code>foods.txt</code>:</p>
+            <h2>Writing to Files</h2>
+            <p>Each line written can represent a <strong>record</strong>. Records can contain multiple
+                <strong>fields</strong>, separated by a special character like <code>#</code>.
+            </p>
+            <pre><code>
+outFile << "Pizza#9.99" << endl;
+outFile << "Tacos#7.49" << endl;
+            </code></pre>
+
+            <h2>Reading from Files</h2>
+            <p>You can read full lines using <code>getline()</code>, or use <code>&gt;&gt;</code> to read word by word
+                or field by field. Use <code>eof()</code> to detect the end of the file:</p>
+            <pre><code>
+while (!inFile.eof()) {
+    getline(inFile, line);
+    // process line
+}
+            </code></pre>
+
+            <h2>Don't Forget!</h2>
+            <ul>
+                <li>✔️ Always close your files with <code>close()</code> when done.</li>
+                <li>✔️ Each line (record) should end with <code>endl</code>.</li>
+                <li>✔️ Use characters like <code>#</code> to split up fields within a record.</li>
+            </ul>
+
+            <h2>How File Streams Compare to <code>cin</code> and <code>cout</code></h2>
+            <ul>
+                <li><code>cout &lt;&lt; "Pizza";</code> – prints to the console</li>
+                <li><code>outFile &lt;&lt; "Pizza";</code> – writes to a file</li>
+                <li><code>cin &gt;&gt; name;</code> – reads from the user</li>
+                <li><code>inFile &gt;&gt; name;</code> – reads from a file</li>
+            </ul>
+
+            <h2>Code Walkthrough – Full Example</h2>
+            <p>This program saves a list of foods and their prices to a file, then reads and displays them:</p>
             <pre><code>
 #include &lt;iostream&gt;
 #include &lt;fstream&gt;
@@ -82,55 +113,53 @@ int main() {
 using namespace std;
 
 int main() {
-    ifstream inFile("foods.txt");
-    string food;
+    ofstream outFile("foods.txt");
 
-    if (inFile.is_open()) {
-        while (getline(inFile, food)) {
-            cout << "I love: " << food << endl;
-        }
-        inFile.close();
-    } else {
-        cout << "Unable to open file." << endl;
+    if (!outFile.is_open()) {
+        cout << "Could not open file for writing." << endl;
+        return 1;
     }
 
+    outFile << "Pizza#9.99" << endl;
+    outFile << "Burger#5.49" << endl;
+    outFile << "Ice Cream#3.25" << endl;
+    outFile.close();
+
+    ifstream inFile("foods.txt");
+    string line;
+
+    if (!inFile.is_open()) {
+        cout << "Could not open file for reading." << endl;
+        return 1;
+    }
+
+    cout << "Food Menu:\n";
+    while (getline(inFile, line)) {
+        size_t separator = line.find('#');
+        string name = line.substr(0, separator);
+        string price = line.substr(separator + 1);
+        cout << "- " << name << ": $" << price << endl;
+    }
+
+    inFile.close();
     return 0;
 }
             </code></pre>
 
-            <h2>File Opening Modes</h2>
+            <h2>Key Terms</h2>
             <ul>
-                <li>📁 <code>ios::in</code> – Open for reading</li>
-                <li>📁 <code>ios::out</code> – Open for writing</li>
-                <li>📁 <code>ios::app</code> – Append to the end</li>
-                <li>📁 <code>ios::trunc</code> – Truncate (erase contents)</li>
-                <li>📁 <code>ios::binary</code> – Binary mode</li>
-            </ul>
-
-            <h2>Append Mode Example</h2>
-            <p>Add a new food item to the end of the file:</p>
-            <pre><code>
-ofstream outFile("foods.txt", ios::app);
-outFile << "Tacos\n";
-            </code></pre>
-
-            <h2>How File Streams Are Like cin and cout</h2>
-            <p>File streams use the same operators as console input/output:</p>
-            <ul>
-                <li>🔹 <code>cout &lt;&lt; "Pizza";</code> – Console output</li>
-                <li>🔹 <code>outFile &lt;&lt; "Pizza";</code> – File output</li>
-                <li>🔹 <code>cin &gt;&gt; input;</code> – Console input</li>
-                <li>🔹 <code>inFile &gt;&gt; input;</code> – File input</li>
-            </ul>
-            <p>So if you know how to use <code>cin</code> and <code>cout</code>, you’re already halfway there with file
-                streams!</p>
-
-            <h2>Key Tips</h2>
-            <ul>
-                <li>✅ Always check if the file opened successfully.</li>
-                <li>✅ Don’t forget to <code>.close()</code> your files.</li>
-                <li>✅ Use <code>getline()</code> for reading full lines.</li>
-                <li>✅ File streams behave like cin/cout but read/write to files instead of the console.</li>
+                <li><strong>Field</strong> – A single piece of info (e.g. price)</li>
+                <li><strong>Record</strong> – A full set of related fields (e.g. Pizza + price)</li>
+                <li><strong>Input file</strong> – A file your program reads from</li>
+                <li><strong>Output file</strong> – A file your program writes to</li>
+                <li><strong>open()</strong> – Opens a file</li>
+                <li><strong>is_open()</strong> – Checks if file opened successfully</li>
+                <li><strong>close()</strong> – Closes a file</li>
+                <li><strong>eof()</strong> – True if at end of file</li>
+                <li><strong>Sequential access file</strong> – Text file read from start to end</li>
+                <li><strong>Text file</strong> – Another name for sequential file</li>
+                <li><strong>not logical operator (!)</strong> – Reverses a condition’s truth</li>
+                <li><strong>Scope resolution operator (::)</strong> – Links function/member to class</li>
             </ul>
         </div>
     </div>
