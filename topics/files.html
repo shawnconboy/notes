@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File I/O - C++ Wiki</title>
+    <link rel="stylesheet" href="../style.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <div class="sidebar">
+        <a href="../index.html">
+            <h2>C++ Wiki</h2>
+        </a>
+        <ul>
+            <li><a href="../index.html">Introduction</a></li>
+            <li><a href="variables.html">Variables</a></li>
+            <li><a href="loops.html">Loops</a></li>
+            <li><a href="functions.html">Functions</a></li>
+            <li><a href="arrays.html">Arrays</a></li>
+            <li><a href="strings.html">Strings</a></li>
+            <li><a href="fstream.html">File</a></li>
+        </ul>
+    </div>
+
+    <div class="content">
+        <div class="intro">
+            <h1>File I/O in C++</h1>
+
+            <h2>What is <code>fstream</code>?</h2>
+            <p><code>fstream</code> is part of the C++ Standard Library and allows you to read from and write to files.
+                It's found in the &lt;fstream&gt; header and gives you control over file input/output (I/O).</p>
+
+            <h2>Types of File Streams</h2>
+            <ul>
+                <li>🔹 <code>ifstream</code> – Input file stream (for reading)</li>
+                <li>🔹 <code>ofstream</code> – Output file stream (for writing)</li>
+                <li>🔹 <code>fstream</code> – Can do both reading and writing</li>
+            </ul>
+
+            <h2>Include the Header</h2>
+            <pre><code>
+#include &lt;fstream&gt;
+
+</code></pre>
+
+            <h2>Writing to a File</h2>
+            <p>This example writes favorite foods to a file called <code>foods.txt</code>:</p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+using namespace std;
+
+int main() {
+    ofstream outFile("foods.txt");
+
+    if (outFile.is_open()) {
+        outFile << "Pizza\n";
+        outFile << "Sushi\n";
+        outFile << "Ice Cream\n";
+        outFile.close();
+    } else {
+        cout << "Failed to open file." << endl;
+    }
+
+    return 0;
+}
+            </code></pre>
+
+            <h2>Reading from a File</h2>
+            <p>This reads and prints the contents of <code>foods.txt</code>:</p>
+            <pre><code>
+#include &lt;iostream&gt;
+#include &lt;fstream&gt;
+#include &lt;string&gt;
+using namespace std;
+
+int main() {
+    ifstream inFile("foods.txt");
+    string food;
+
+    if (inFile.is_open()) {
+        while (getline(inFile, food)) {
+            cout << "I love: " << food << endl;
+        }
+        inFile.close();
+    } else {
+        cout << "Unable to open file." << endl;
+    }
+
+    return 0;
+}
+            </code></pre>
+
+            <h2>File Opening Modes</h2>
+            <ul>
+                <li>📁 <code>ios::in</code> – Open for reading</li>
+                <li>📁 <code>ios::out</code> – Open for writing</li>
+                <li>📁 <code>ios::app</code> – Append to the end</li>
+                <li>📁 <code>ios::trunc</code> – Truncate (erase contents)</li>
+                <li>📁 <code>ios::binary</code> – Binary mode</li>
+            </ul>
+
+            <h2>Append Mode Example</h2>
+            <p>Add a new food item to the end of the file:</p>
+            <pre><code>
+ofstream outFile("foods.txt", ios::app);
+outFile << "Tacos\n";
+            </code></pre>
+
+            <h2>How File Streams Are Like cin and cout</h2>
+            <p>File streams use the same operators as console input/output:</p>
+            <ul>
+                <li>🔹 <code>cout &lt;&lt; "Pizza";</code> – Console output</li>
+                <li>🔹 <code>outFile &lt;&lt; "Pizza";</code> – File output</li>
+                <li>🔹 <code>cin &gt;&gt; input;</code> – Console input</li>
+                <li>🔹 <code>inFile &gt;&gt; input;</code> – File input</li>
+            </ul>
+            <p>So if you know how to use <code>cin</code> and <code>cout</code>, you’re already halfway there with file
+                streams!</p>
+
+            <h2>Key Tips</h2>
+            <ul>
+                <li>✅ Always check if the file opened successfully.</li>
+                <li>✅ Don’t forget to <code>.close()</code> your files.</li>
+                <li>✅ Use <code>getline()</code> for reading full lines.</li>
+                <li>✅ File streams behave like cin/cout but read/write to files instead of the console.</li>
+            </ul>
+        </div>
+    </div>
+</body>
+
+</html>
